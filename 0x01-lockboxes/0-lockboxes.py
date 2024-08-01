@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 def canUnlockAll(boxes):
     visited = set()
     visited.add(0)
