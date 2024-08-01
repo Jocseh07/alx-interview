@@ -1,4 +1,9 @@
+#!/usr/bin/python3
+"""Lockboxes."""
+
+
 def canUnlockAll(boxes):
+    """Determine if all the boxes can be opened."""
     visited = set()
     visited.add(0)
 
