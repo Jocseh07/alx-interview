@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-import sys
-
 """
 Log parsing
 """
+
+
+import sys
 
 
 def print_stats(total_size, status_codes):
