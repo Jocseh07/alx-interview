@@ -19,7 +19,7 @@ def print_stats(total_size, status_codes):
     - None
     """
     print("Total file size:", total_size)
-    for code in sorted(status_codes.keys()):
+    for code in status_codes.keys():
         if status_codes[code] > 0:
             print(code, ":", status_codes[code])
 
@@ -43,7 +43,7 @@ def parse_line(line):
         status_code = int(parts[-2])
         file_size = int(parts[-1])
         return ip_address, status_code, file_size
-    except (IndexError, ValueError):
+    except (IndexError, ValueError, TypeError):
         return None, None, None
 
 
