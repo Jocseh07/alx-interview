@@ -69,10 +69,10 @@ def main():
     try:
         for line in sys.stdin:
             ip_address, status_code, file_size = parse_line(line)
+            total_size += file_size
             if ip_address is None:
                 continue
 
-            total_size += file_size
             status_codes[status_code] += 1
             line_count += 1
 
