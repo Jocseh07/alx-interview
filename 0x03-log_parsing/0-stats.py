@@ -40,11 +40,11 @@ def parse_line(line):
     try:
         parts = line.split()
         ip_address = parts[0]
-        status_code = parts[-2]
+        status_code = int(parts[-2])
         file_size = int(parts[-1])
         return ip_address, status_code, file_size
     except (IndexError, ValueError, TypeError):
-        return None, None, None
+        return None, None, int(parts[-1]) if len(parts) > 0 else 0
 
 
 def main():
@@ -65,6 +65,8 @@ def main():
     try:
         for line in sys.stdin:
             ip_address, status_code, file_size = parse_line(line)
+            total_size += file_size
+
             if ip_address is None:
                 continue
 
