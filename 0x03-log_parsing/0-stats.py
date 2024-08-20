@@ -44,7 +44,11 @@ def parse_line(line):
         file_size = int(parts[-1])
         return ip_address, status_code, file_size
     except (IndexError, ValueError, TypeError):
-        return None, None, None
+        try:
+            file_size = int(parts[-1])
+        except (IndexError, ValueError, TypeError):
+            file_size = 0
+        return None, None, file_size
 
 
 def main():
