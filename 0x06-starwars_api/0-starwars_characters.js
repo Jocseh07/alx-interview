@@ -17,24 +17,16 @@ if (movieId < 1 || movieId > 7) {
 const movieUrl = `${url}/${movieId}`;
 
 request(movieUrl, async (error, response, body) => {
-  if (error) {
-    throw error;
-  } else {
-    const movie = JSON.parse(body);
-    const characters = movie.characters;
-
-    for (const character of characters) {
-      const characterData = await new Promise((resolve, reject) => {
-        request(character, (error, response, body) => {
-          if (error) {
-            throw error;
-          } else {
-            resolve(JSON.parse(body));
-          }
-        });
-      });
-
-      console.log(characterData.name);
-    }
-  }
+  if (error) throw error;
+  const movieCharacters = JSON.parse(body).characters;
+  getCharacterNames(movieCharacters, 0);
 });
+
+function getCharacterNames(movieCharacters, index) {
+  if (index === movieCharacters.length) return;
+  request(movieCharacters[index], (error, response, body) => {
+    if (error) throw error;
+    console.log(JSON.parse(body).name);
+    getCharacterNames(movieCharacters, index + 1);
+  });
+}
