@@ -18,7 +18,7 @@ const movieUrl = `${url}/${movieId}`;
 
 request(movieUrl, async (error, response, body) => {
   if (error) {
-    console.log(error);
+    throw error;
   } else {
     const movie = JSON.parse(body);
     const characters = movie.characters;
@@ -27,7 +27,7 @@ request(movieUrl, async (error, response, body) => {
       const characterData = await new Promise((resolve, reject) => {
         request(character, (error, response, body) => {
           if (error) {
-            reject(error);
+            throw error;
           } else {
             resolve(JSON.parse(body));
           }
