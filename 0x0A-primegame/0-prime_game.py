@@ -18,10 +18,10 @@ def getPrimes(n):
 
 def isWinner(x, nums):
     """Prime Game"""
-    if x < 1 or not nums:
-        return None
-    # if x != len(nums):
+    # if x < 1 or not nums:
     #     return None
+    if x != len(nums):
+        return None
 
     Maria = 0
     Ben = 0
