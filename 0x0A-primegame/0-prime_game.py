@@ -19,13 +19,15 @@ def getPrimes(n):
 
 def isWinner(x, nums):
     """Prime Game"""
+    if x < 1 or not nums:
+        return None
     Maria = 0
     Ben = 0
     rounds = 0
     for n in nums:
-        if rounds == x:
-            break
-        round += 1
+        # if rounds == x:
+        #     break
+        # round += 1
         primes = getPrimes(n)
         if len(primes) % 2 == 0:
             Ben += 1
