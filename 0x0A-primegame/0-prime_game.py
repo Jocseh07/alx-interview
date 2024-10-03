@@ -27,7 +27,7 @@ def isWinner(x, nums):
     Ben = 0
 
     for n in nums:
-        if (n == 0):
+        if (n < 1 or n > 10000):
             # print("here")
             continue
         primes = getPrimes(n)
