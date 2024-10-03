@@ -21,7 +21,11 @@ def isWinner(x, nums):
     """Prime Game"""
     Maria = 0
     Ben = 0
+    rounds = 0
     for n in nums:
+        if rounds == x:
+            break
+        round += 1
         primes = getPrimes(n)
         if len(primes) % 2 == 0:
             Ben += 1
