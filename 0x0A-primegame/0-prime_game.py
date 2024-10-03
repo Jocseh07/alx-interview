@@ -1,9 +1,22 @@
 #!/usr/bin/python3
-"""Prime Game"""
+
+"""
+This module provides functions to determine the winner of a prime game.
+
+Functions:
+  isWinner(x, nums):"""
 
 
 def getPrimes(n):
-    """Get all prime numbers less than n"""
+    """
+    Get all prime numbers less than or equal to a given number.
+
+    Args:
+      n (int): The upper limit (inclusive) to find prime numbers.
+
+    Returns:
+      list: A list of prime numbers less than or equal to n.
+    """
     primes = []
     for i in range(2, n + 1):
         isPrime = True
@@ -17,7 +30,22 @@ def getPrimes(n):
 
 
 def isWinner(x, nums):
-    """Prime Game"""
+    """
+    Determines the winner of the prime game.
+
+    The game is played as follows:
+    - Maria and Ben take turns picking prime numbers from a list of numbers from 1 to n.
+    - The player who cannot pick a prime number loses the game.
+    - The winner is determined by the number of rounds won by each player.
+
+    Args:
+      x (int): The number of rounds.
+      nums (list): A list of integers representing the upper limit of numbers for each round.
+
+    Returns:
+      str: The name of the player with the most wins ("Maria" or "Ben").
+         If the number of rounds is invalid or the input list is empty, returns None.
+    """
     # if x < 1 or not nums:
     #     return None
     if x != len(nums):
