@@ -33,8 +33,10 @@ def isWinner(x, nums):
         primes = getPrimes(n)
         if len(primes) % 2 == 0:
             Ben += 1
+            print("Ben")
         else:
             Maria += 1
+            print("Maria")
     if Maria > Ben:
         return "Maria"
     return "Ben"
