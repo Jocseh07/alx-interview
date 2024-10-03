@@ -27,11 +27,18 @@ def isWinner(x, nums):
     Ben = 0
 
     for n in nums:
+        if (n == 0):
+            # print("here")
+            continue
         primes = getPrimes(n)
+        # print(primes)
+
         if len(primes) % 2 == 0:
             Ben += 1
+            # print("Ben")
         else:
             Maria += 1
+            # print("Maria")
     if Maria > Ben:
         return "Maria"
     return "Ben"
